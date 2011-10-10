@@ -1,0 +1,18 @@
+<!-- TODO - if a custom css exists for this tag, include it -->
+
+<div id='feed_header'>
+  Current hashtag is <b><%= @tag %></b>
+</div>
+
+<div id='feed'>
+  <% if @media.nil? or @media.empty? %>
+      No Results
+  <% else %>
+      <% @media.each do |media| %>
+        <div id='<%= media.id %>'>
+          <img src='<%= media.images.thumbnail.url %>'></img>
+          <span><%= media.caption.text %></span>
+        </div>
+      <% end %>
+  <% end %>
+</div>

@@ -55,4 +55,10 @@ Hashfeed::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+
+  root :to => 'home#index'
+  match '/search' => 'home#search', :as => :search
+  match '/tag/:tag' => 'home#tag', :as => :tag
+  #match '/login' => 'home#login', :as => :login
+  match '*a', :to => 'error#routing', :as => :error
 end
