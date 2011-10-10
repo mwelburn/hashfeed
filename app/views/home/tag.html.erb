@@ -11,7 +11,11 @@
       <% @media.each do |media| %>
         <div id='<%= media.id %>'>
           <img src='<%= media.images.thumbnail.url %>'></img>
-          <span><%= media.caption.text %></span>
+          <% if media.caption.nil? %>
+              <span>&nbsp;</span>
+          <% else %>
+              <span><%= media.caption.text %></span>
+          <% end %>
         </div>
       <% end %>
   <% end %>
