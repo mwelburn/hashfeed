@@ -23,3 +23,46 @@
       <% end %>
   <% end %>
 </div>
+
+<script type='text/javascript'>
+  //on page load
+  $(document).ready(function()
+  {
+     setInterval( "checkForNewFeed()", 10000 );
+  });
+
+  //TODO - actually retrieve the min_id and max_id on the initial render
+
+  function checkForNewFeed()
+  {
+    $.ajax({
+        type: "GET",
+        url: "/" + <%= @tag %> + "/ajax_new/" + <%= @min_id %>,
+        success: updateFeedNew()
+    });
+  }
+
+  function updateFeedNew()
+  {
+      //TODO - build the new elements
+
+      //TODO - set new min_id
+  }
+
+  function checkForOldFeed()
+  {
+    $.ajax({
+        type: "GET",
+        url: "/" + <%= @tag %> + "/ajax_new/" + <%= @max_id %>,
+        success: updateFeedOld()
+    });
+  }
+
+  //fires when scrolling down
+  function updateFeedOld()
+  {
+      //TODO - build the new elements
+
+      //TODO - set new max_id
+  }
+</script>

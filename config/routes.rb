@@ -59,6 +59,8 @@ Hashfeed::Application.routes.draw do
   root :to => 'home#index'
   match '/search' => 'home#search', :as => :search
   match '/tag/:tag' => 'home#tag', :as => :tag
+  match '/tag/:tag/ajax_new/:id' => 'home#ajax_new', :as => :tag_ajax_new
+  match '/tag/:tag/ajax_old/:id' => 'home#ajax_old', :as => :tag_ajax_old
   #match '/login' => 'home#login', :as => :login
   match '*a', :to => 'error#routing', :as => :error
 end
