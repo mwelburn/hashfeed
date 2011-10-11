@@ -9,6 +9,7 @@
       No Results
   <% else %>
       <% @media.each do |media| %>
+        <!-- TODO - set min_id and max_id here -->
         <div id='<%= media.id %>'>
           <!-- TODO - add lightbox support and set the link to something else -->
           <a href='<%= media.link %>'>
@@ -31,13 +32,16 @@
      setInterval( "checkForNewFeed()", 10000 );
   });
 
-  //TODO - actually retrieve the min_id and max_id on the initial render
+  var min_id = -1;
+  var max_id = -1;
+
+  //TODO - actually retrieve the min_id and max_id on the initial render via the loop
 
   function checkForNewFeed()
   {
     $.ajax({
         type: "GET",
-        url: "/" + <%= @tag %> + "/ajax_new/" + <%= @min_id %>,
+        url: "/" + <%= @tag %> + "/ajax_new/" + min_id,
         success: updateFeedNew()
     });
   }
@@ -53,7 +57,7 @@
   {
     $.ajax({
         type: "GET",
-        url: "/" + <%= @tag %> + "/ajax_new/" + <%= @max_id %>,
+        url: "/" + <%= @tag %> + "/ajax_new/" + max_id,
         success: updateFeedOld()
     });
   }

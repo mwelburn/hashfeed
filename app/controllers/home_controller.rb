@@ -43,7 +43,7 @@ class HomeController < ApplicationController
     tag = params[:tag]
 
     #if bad parameters, just return nothing
-    if max_id.nil? or tag.nil?
+    if max_id.nil? or tag.nil? or max_id == -1
       return nil
     end
 
@@ -61,7 +61,7 @@ class HomeController < ApplicationController
     tag = params[:tag]
 
     #if bad parameters, just return nothing
-    if min_id.nil? or tag.nil?
+    if min_id.nil? or tag.nil? or min_id == -1
       return nil
     end
 
