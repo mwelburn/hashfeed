@@ -8,6 +8,7 @@ gem 'rails', '3.0.9'
 group :development do
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
+#  gem 'nifty-generators'
 end
 
 group :production do
@@ -15,7 +16,7 @@ group :production do
 end
 
 #gem 'mysql2'
-#gem 'jquery-rails'
+gem 'jquery-rails'
 gem 'instagram'
 
 # Use unicorn as the web server

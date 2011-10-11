@@ -10,7 +10,10 @@
   <% else %>
       <% @media.each do |media| %>
         <div id='<%= media.id %>'>
-          <img src='<%= media.images.thumbnail.url %>'></img>
+          <!-- TODO - add lightbox support and set the link to something else -->
+          <a href='<%= media.link %>'>
+            <img src='<%= media.images.thumbnail.url %>'></img>
+          </a>
           <% if media.caption.nil? %>
               <span>&nbsp;</span>
           <% else %>
